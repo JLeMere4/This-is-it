@@ -16,6 +16,7 @@
 		04A4D9602923479400705EFD /* This_is_itTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D95F2923479400705EFD /* This_is_itTests.swift */; };
 		04A4D96A2923479400705EFD /* This_is_itUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D9692923479400705EFD /* This_is_itUITests.swift */; };
 		04A4D96C2923479400705EFD /* This_is_itUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D96B2923479400705EFD /* This_is_itUITestsLaunchTests.swift */; };
+		04A4D979292544F800705EFD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D978292544F800705EFD /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		04A4D9652923479400705EFD /* This is itUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "This is itUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A4D9692923479400705EFD /* This_is_itUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = This_is_itUITests.swift; sourceTree = "<group>"; };
 		04A4D96B2923479400705EFD /* This_is_itUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = This_is_itUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		04A4D978292544F800705EFD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				04A4D9512923479400705EFD /* Assets.xcassets */,
 				04A4D9532923479400705EFD /* LaunchScreen.storyboard */,
 				04A4D9562923479400705EFD /* Info.plist */,
+				04A4D978292544F800705EFD /* MapViewController.swift */,
 			);
 			path = "This is it";
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				04A4D94D2923479300705EFD /* ViewController.swift in Sources */,
 				04A4D9492923479300705EFD /* AppDelegate.swift in Sources */,
 				04A4D94B2923479300705EFD /* SceneDelegate.swift in Sources */,
+				04A4D979292544F800705EFD /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
