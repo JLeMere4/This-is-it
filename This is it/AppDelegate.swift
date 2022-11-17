@@ -4,6 +4,7 @@
 //
 //  Created by Jack on 11/14/22.
 //https://developer.apple.com/documentation/mapkit/
+//https://developer.apple.com/documentation/mapkit/enabling_maps_capability_in_xcode
 
 import UIKit
 
