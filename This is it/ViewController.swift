@@ -13,9 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("I have a big cock")
-        print("I have a small cock")
         
+        //view.backgroundColor = .green
     }
 
 
