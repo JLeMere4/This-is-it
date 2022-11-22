@@ -5,7 +5,7 @@
 //  Created by Jack on 11/16/22.
 //
 
-import CoreLocation
+/*import CoreLocation
 import UIKit
 import MapKit
 
@@ -50,6 +50,56 @@ private extension MKMapView {
     setRegion(coordinateRegion, animated: true)
   }
 }
+*/
+
+/*import UIKit
+import MapKit
+
+
+
+
+
+class ViewController: UIViewController{
+    convenience init(width: Double, height: Double){
+        let width: Double = 100.0
+        let height: Double = 100.0
+        var centerCoordinate: CLLocationCoordinate2D
+        var heading: CLLocationDirection
+        var centerCoordinateDistance: CLLocationDistance
+        var pitch: CGFloat
+        self.init()
+    }
+
+}
+
+
+class MapViewController: UIViewController, MKMapViewDelegate {
+    
+    
+
+    
+    struct MKMapSize {
+
+
+    }
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+        }
+    }
+
+class MKMapCamera : NSObject{
+    
+    init(lookingAtCenter: CLLocationCoordinate2D, fromEyeCoordinate: CLLocationCoordinate2D, eyeAltitude: CLLocationDistance){
+        
+
+        
+    }
+    
+    
+}*/
+
 
 
 
