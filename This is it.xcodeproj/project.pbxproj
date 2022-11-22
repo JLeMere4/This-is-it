@@ -51,6 +51,11 @@
 		04A4D9692923479400705EFD /* This_is_itUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = This_is_itUITests.swift; sourceTree = "<group>"; };
 		04A4D96B2923479400705EFD /* This_is_itUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = This_is_itUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		04A4D978292544F800705EFD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		04A4D97E292CB1DD00705EFD /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
+		04A4D97F292CB1DD00705EFD /* InterfaceBuilderKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InterfaceBuilderKit.framework; path = Library/Frameworks/InterfaceBuilderKit.framework; sourceTree = DEVELOPER_DIR; };
+		04A4D980292CB1DD00705EFD /* StoreKitTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKitTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/StoreKitTest.framework; sourceTree = DEVELOPER_DIR; };
+		04A4D981292CB1DE00705EFD /* Python3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python3.framework; path = Library/Frameworks/Python3.framework; sourceTree = DEVELOPER_DIR; };
+		04A4D982292CB1DE00705EFD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +90,7 @@
 				04A4D95E2923479400705EFD /* This is itTests */,
 				04A4D9682923479400705EFD /* This is itUITests */,
 				04A4D9462923479300705EFD /* Products */,
+				04A4D97D292CAF6700705EFD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +134,18 @@
 				04A4D96B2923479400705EFD /* This_is_itUITestsLaunchTests.swift */,
 			);
 			path = "This is itUITests";
+			sourceTree = "<group>";
+		};
+		04A4D97D292CAF6700705EFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04A4D97F292CB1DD00705EFD /* InterfaceBuilderKit.framework */,
+				04A4D981292CB1DE00705EFD /* Python3.framework */,
+				04A4D980292CB1DD00705EFD /* StoreKitTest.framework */,
+				04A4D97E292CB1DD00705EFD /* XcodeKit.framework */,
+				04A4D982292CB1DE00705EFD /* XCTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
