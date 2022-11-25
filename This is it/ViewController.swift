@@ -5,45 +5,15 @@
 //  Created by Jack on 11/14/22.
 //
 //https://developer.apple.com/documentation/mapkit/enabling_maps_capability_in_xcode
-/*
-import UIKit
-import MapKit
 
-class iewController: UIViewController {
-    @IBOutlet private var mapView: MKMapView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Set initial location in Honolulu
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-
-        // Do any additional setup after loading the view.
-        
-        //view.backgroundColor = .green
-    }
-    private extension MKMapView {
-      func centerToLocation(
-        _ location: CLLocation,
-        regionRadius: CLLocationDistance = 1000
-      ) {
-        let coordinateRegion = MKCoordinateRegion(
-          center: location.coordinate,
-          latitudinalMeters: regionRadius,
-          longitudinalMeters: regionRadius)
-        setRegion(coordinateRegion, animated: true)
-      }
-    }
-
-
-}
-
-*/
 
 
 import UIKit
 import MapKit
 import CoreLocation
+import FloatingPanel
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FloatingPanelControllerDelegate {
     
     
     fileprivate let locationManager: CLLocationManager = CLLocationManager()
@@ -52,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //setting up map
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
@@ -59,23 +30,30 @@ class ViewController: UIViewController {
         
         mapView.showsUserLocation = true
         
-        let oahuCenter = CLLocation(latitude: 21.4765, longitude: -157.9647)
+        let oahuCenter = CLLocation(latitude: 33.69, longitude: -112.3100)
         let region = MKCoordinateRegion(
           center: oahuCenter.coordinate,
-          latitudinalMeters: 50000,
-          longitudinalMeters: 60000)
+          latitudinalMeters: 10000000,
+          longitudinalMeters: 10000000)
         mapView.setCameraBoundary(
           MKMapView.CameraBoundary(coordinateRegion: region),
           animated: true)
         
-        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
+        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 100000000)
         mapView.setCameraZoomRange(zoomRange, animated: true)
 
+        //creating the floating panel
+        let fpc = FloatingPanelController()
+        fpc.delegate = self
         
+        guard let contentVC = storyboard?.instantiateViewController(identifier: "fpc_content") as? ContentViewController else {
+            return
+        }
+        
+        fpc.set(contentViewController: contentVC)
+        
+        fpc.addPanel(toParent: self)
     }
-    
-
-   
     
 }
 
