@@ -1,106 +1,105 @@
 //
-//  MapViewController.swift
-//  This is it
+//  ContentView.swift
+//  Directions
 //
-//  Created by Jack on 11/16/22.
-//
-
-/*import CoreLocation
-import UIKit
+/*
 import MapKit
+import SwiftUI
+import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet private var mapView: MKMapView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Set initial location in Honolulu
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        mapView.centerToLocation(initialLocation)
-        let oahuCenter = CLLocation(latitude: 21.4765, longitude: -157.9647)
-        let region = MKCoordinateRegion(
-          center: oahuCenter.coordinate,
-          latitudinalMeters: 50000,
-          longitudinalMeters: 60000)
-        mapView.setCameraBoundary(
-          MKMapView.CameraBoundary(coordinateRegion: region),
-          animated: true)
-        
-        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
-        mapView.setCameraZoomRange(zoomRange, animated: true)
+struct ContentView: View {
 
+  @State private var directions: [String] = []
+  @State private var showDirections = false
 
-        // Do any additional setup after loading the view.
-        
-        //view.backgroundColor = .green
-    }
-    
-    
-    
+  var body: some View {
+    VStack {
+      MapView(directions: $directions)
+
+      Button(action: {
+        self.showDirections.toggle()
+      }, label: {
+        Text("Show directions")
+      })
+      .disabled(directions.isEmpty)
+      .padding()
+    }.sheet(isPresented: $showDirections, content: {
+      VStack(spacing: 0) {
+        Text("Directions")
+          .font(.largeTitle)
+          .bold()
+          .padding()
+
+        Divider().background(Color(UIColor.systemBlue))
+
+        List(0..<self.directions.count, id: \.self) { i in
+          Text(self.directions[i]).padding()
+        }
+      }
+    })
+  }
 }
 
-private extension MKMapView {
-  func centerToLocation(
-    _ location: CLLocation,
-    regionRadius: CLLocationDistance = 1000
-  ) {
-    let coordinateRegion = MKCoordinateRegion(
-      center: location.coordinate,
-      latitudinalMeters: regionRadius,
-      longitudinalMeters: regionRadius)
-    setRegion(coordinateRegion, animated: true)
+struct MapView: UIViewRepresentable {
+
+  typealias UIViewType = MKMapView
+
+  @Binding var directions: [String]
+
+  func makeCoordinator() -> MapViewCoordinator {
+    return MapViewCoordinator()
+  }
+
+  func makeUIView(context: Context) -> MKMapView {
+    let mapView = MKMapView()
+    mapView.delegate = context.coordinator
+
+    let region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 33.6411, longitude: -111.9981),
+      span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    mapView.setRegion(region, animated: true)
+
+    // PV
+      let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 33.6411, longitude: -111.9981))
+
+    // NC
+      let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 33.6567, longitude: -112.0434))
+
+    let request = MKDirections.Request()
+    request.source = MKMapItem(placemark: p1)
+    request.destination = MKMapItem(placemark: p2)
+    request.transportType = .walking
+
+    let directions = MKDirections(request: request)
+    directions.calculate { response, error in
+      guard let route = response?.routes.first else { return }
+      mapView.addAnnotations([p1, p2])
+      mapView.addOverlay(route.polyline)
+      mapView.setVisibleMapRect(
+        route.polyline.boundingMapRect,
+        edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
+        animated: true)
+      self.directions = route.steps.map { $0.instructions }.filter { !$0.isEmpty }
+    }
+    return mapView
+  }
+
+  func updateUIView(_ uiView: MKMapView, context: Context) {
+  }
+
+  class MapViewCoordinator: NSObject, MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+      let renderer = MKPolylineRenderer(overlay: overlay)
+      renderer.strokeColor = .systemBlue
+      renderer.lineWidth = 5
+      return renderer
+    }
+  }
+}
+
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
+    ContentView()
   }
 }
 */
-
-/*import UIKit
-import MapKit
-
-
-
-
-
-class ViewController: UIViewController{
-    convenience init(width: Double, height: Double){
-        let width: Double = 100.0
-        let height: Double = 100.0
-        var centerCoordinate: CLLocationCoordinate2D
-        var heading: CLLocationDirection
-        var centerCoordinateDistance: CLLocationDistance
-        var pitch: CGFloat
-        self.init()
-    }
-
-}
-
-
-class MapViewController: UIViewController, MKMapViewDelegate {
-    
-    
-
-    
-    struct MKMapSize {
-
-
-    }
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            
-        }
-    }
-
-class MKMapCamera : NSObject{
-    
-    init(lookingAtCenter: CLLocationCoordinate2D, fromEyeCoordinate: CLLocationCoordinate2D, eyeAltitude: CLLocationDistance){
-        
-
-        
-    }
-    
-    
-}*/
-
-
-
-
-

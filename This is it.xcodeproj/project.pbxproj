@@ -115,11 +115,11 @@
 				04A4D94A2923479300705EFD /* SceneDelegate.swift */,
 				04A4D94C2923479300705EFD /* ViewController.swift */,
 				0495B3512930993D00BFC9B5 /* ContentViewController.swift */,
+				04A4D978292544F800705EFD /* MapViewController.swift */,
 				04A4D94E2923479300705EFD /* Main.storyboard */,
 				04A4D9512923479400705EFD /* Assets.xcassets */,
 				04A4D9532923479400705EFD /* LaunchScreen.storyboard */,
 				04A4D9562923479400705EFD /* Info.plist */,
-				04A4D978292544F800705EFD /* MapViewController.swift */,
 			);
 			path = "This is it";
 			sourceTree = "<group>";
