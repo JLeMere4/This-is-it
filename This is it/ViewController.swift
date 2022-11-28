@@ -16,7 +16,8 @@ import FloatingPanel
 class ViewController: UIViewController, FloatingPanelControllerDelegate {
     
     
-    fileprivate let locationManager: CLLocationManager = CLLocationManager()
+    //fileprivate let locationManager: CLLocationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
@@ -24,8 +25,7 @@ class ViewController: UIViewController, FloatingPanelControllerDelegate {
         
 
             
-            
-            //setting up map
+            //setting up users location
             locationManager.requestWhenInUseAuthorization()
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.distanceFilter = kCLDistanceFilterNone
@@ -33,25 +33,22 @@ class ViewController: UIViewController, FloatingPanelControllerDelegate {
             
             mapView.showsUserLocation = true
         
-        var  latitude = 1.1
-        var  longitude = 1.1
+
+        
+
         var currentLoc: CLLocation!
-        var c = 1
-        while(c<=3){
-            latitude = currentLoc.coordinate.latitude
-            longitude = currentLoc.coordinate.longitude
-        
         let manager = CLLocationManager()
-        if(manager.authorizationStatus == .authorizedWhenInUse ||
-           manager.authorizationStatus == .authorizedAlways) {
-            currentLoc = locationManager.location
-            c=c+1
-        }
-            print(latitude)
-            print(longitude)
         
+            locationManager.requestWhenInUseAuthorization()
+                  if(manager.authorizationStatus == .authorizedWhenInUse ||
+                     manager.authorizationStatus == .authorizedAlways) {
+                     currentLoc = locationManager.location
+                     print(currentLoc.coordinate.latitude)
+                     print(currentLoc.coordinate.longitude)
+                  }
             
             
+            //messing around with camera
             let oahuCenter = CLLocation(latitude: 33.69, longitude: -112.3100)
             let region = MKCoordinateRegion(
                 center: oahuCenter.coordinate,
@@ -65,7 +62,7 @@ class ViewController: UIViewController, FloatingPanelControllerDelegate {
             mapView.setCameraZoomRange(zoomRange, animated: true)
             
             
-            
+            //creating the circle
             let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
             let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(currentLoc.coordinate.latitude, currentLoc.coordinate.longitude)
             
@@ -84,4 +81,4 @@ class ViewController: UIViewController, FloatingPanelControllerDelegate {
         
     }
     
-}
+
