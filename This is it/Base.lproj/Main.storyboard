@@ -21,12 +21,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Pin" translatesAutoresizingMaskIntoConstraints="NO" id="mfP-i2-w8y">
+                                <rect key="frame" x="176.66666666666666" y="386" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="d9i-vf-BZS"/>
+                                    <constraint firstAttribute="height" constant="40" id="pDg-aW-KIb"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxB-Fi-bo7">
+                                <rect key="frame" x="293" y="719" width="62" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Go">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N8n-kB-Jjw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xSj-Wf-EWo" firstAttribute="top" secondItem="Tox-a9-BHc" secondAttribute="top" id="1cf-rb-h0P"/>
+                            <constraint firstItem="mfP-i2-w8y" firstAttribute="centerX" secondItem="Tox-a9-BHc" secondAttribute="centerX" id="RcA-PV-nrC"/>
                             <constraint firstAttribute="bottom" secondItem="xSj-Wf-EWo" secondAttribute="bottom" id="bBr-xE-rXN"/>
+                            <constraint firstItem="mfP-i2-w8y" firstAttribute="centerY" secondItem="Tox-a9-BHc" secondAttribute="centerY" id="dmS-z3-bUx"/>
                             <constraint firstItem="xSj-Wf-EWo" firstAttribute="leading" secondItem="Tox-a9-BHc" secondAttribute="leading" id="jfW-jv-bKO"/>
                             <constraint firstAttribute="trailing" secondItem="xSj-Wf-EWo" secondAttribute="trailing" id="rFw-fj-hOD"/>
                             <constraint firstItem="xSj-Wf-EWo" firstAttribute="top" secondItem="Tox-a9-BHc" secondAttribute="top" id="rhO-XI-F7C"/>
@@ -40,38 +58,12 @@
             </objects>
             <point key="canvasLocation" x="58.778625954198468" y="644.36619718309862"/>
         </scene>
-        <!--Content View Controller-->
-        <scene sceneID="bWl-u6-dnb">
-            <objects>
-                <viewController storyboardIdentifier="fpc_content" id="Clb-gd-fJp" customClass="ContentViewController" customModule="This_is_it" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dAn-jj-XBV">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hBB-kI-kAT">
-                                <rect key="frame" x="0.0" y="109" width="393" height="709"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="fcE-VU-HCw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="fcE-VU-HCw" firstAttribute="bottom" secondItem="hBB-kI-kAT" secondAttribute="bottom" id="6at-mF-EaP"/>
-                            <constraint firstItem="hBB-kI-kAT" firstAttribute="leading" secondItem="fcE-VU-HCw" secondAttribute="leading" id="Ylf-Ct-r59"/>
-                            <constraint firstItem="fcE-VU-HCw" firstAttribute="trailing" secondItem="hBB-kI-kAT" secondAttribute="trailing" id="Zbf-lv-wkE"/>
-                            <constraint firstItem="hBB-kI-kAT" firstAttribute="top" secondItem="fcE-VU-HCw" secondAttribute="top" constant="50" id="pe0-Pe-OHI"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="myTableView" destination="hBB-kI-kAT" id="5u3-EQ-FAT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sGY-WT-P0i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="825" y="644"/>
-        </scene>
     </scenes>
     <resources>
+        <image name="Pin" width="16" height="46"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
