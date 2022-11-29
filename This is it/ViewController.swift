@@ -63,7 +63,24 @@ class ViewController: UIViewController, FloatingPanelControllerDelegate {
             
             
             //creating the circle
-            let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
+
+        
+        
+        
+        /*class MKCircle : MKShape{
+            func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+                return MKOverlayRenderer
+            }
+        }*/
+        
+        /*func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, mapView: MKMapView) {
+                let circle = MKCircle(center: coordinate, radius: radius)
+                mapView.addOverlay(circle)
+            }
+        
+        showCircle(coordinate: currentLoc.coordinate, radius: 1000, mapView: mapView)
+        
+        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
             let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(currentLoc.coordinate.latitude, currentLoc.coordinate.longitude)
             
             mapView.setRegion(region, animated: true)
@@ -74,7 +91,7 @@ class ViewController: UIViewController, FloatingPanelControllerDelegate {
             annotation.title = "Random Area"
             
             mapView.addAnnotation(annotation)
-            
+            */
             
             
         }
@@ -82,3 +99,36 @@ class ViewController: UIViewController, FloatingPanelControllerDelegate {
     }
     
 
+class Map: UIViewController {
+    let locationManager = CLLocationManager()
+    
+    var currentLoc: CLLocation!
+    var mapView = MKMapView()
+    var radius = 1000.0
+    var coordinate =
+    
+    func setup() {
+        mapView.delegate = self
+        showCircle(coordinate: coordinate, radius: radius)
+    }
+
+    func showCircle(coordinate: CLLocationCoordinate2D,
+                    radius: CLLocationDistance) {
+        let circle = MKCircle(center: coordinate,
+                              radius: radius)
+        mapView.addOverlay(circle)
+    }
+}
+
+extension Map: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView,
+                 rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let circleOverlay = overlay as? MKCircle {
+            let circleRenderer = MKCircleRenderer(overlay: circleOverlay)
+            circleRenderer.fillColor = .black
+            circleRenderer.alpha = 0.1
+
+            return circleRenderer
+        }
+    }
+}
