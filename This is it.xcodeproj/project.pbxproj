@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0495B3502930927B00BFC9B5 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 0495B34F2930927B00BFC9B5 /* FloatingPanel */; };
-		0495B3522930993D00BFC9B5 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495B3512930993D00BFC9B5 /* ContentViewController.swift */; };
 		04A4D9492923479300705EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D9482923479300705EFD /* AppDelegate.swift */; };
 		04A4D94B2923479300705EFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D94A2923479300705EFD /* SceneDelegate.swift */; };
 		04A4D94D2923479300705EFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D94C2923479300705EFD /* ViewController.swift */; };
@@ -18,7 +17,6 @@
 		04A4D9602923479400705EFD /* This_is_itTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D95F2923479400705EFD /* This_is_itTests.swift */; };
 		04A4D96A2923479400705EFD /* This_is_itUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D9692923479400705EFD /* This_is_itUITests.swift */; };
 		04A4D96C2923479400705EFD /* This_is_itUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D96B2923479400705EFD /* This_is_itUITestsLaunchTests.swift */; };
-		04A4D979292544F800705EFD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4D978292544F800705EFD /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0495B3512930993D00BFC9B5 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		04A4D9452923479300705EFD /* This is it.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "This is it.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A4D9482923479300705EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A4D94A2923479300705EFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +50,6 @@
 		04A4D9652923479400705EFD /* This is itUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "This is itUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A4D9692923479400705EFD /* This_is_itUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = This_is_itUITests.swift; sourceTree = "<group>"; };
 		04A4D96B2923479400705EFD /* This_is_itUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = This_is_itUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		04A4D978292544F800705EFD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		04A4D97E292CB1DD00705EFD /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		04A4D97F292CB1DD00705EFD /* InterfaceBuilderKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InterfaceBuilderKit.framework; path = Library/Frameworks/InterfaceBuilderKit.framework; sourceTree = DEVELOPER_DIR; };
 		04A4D980292CB1DD00705EFD /* StoreKitTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKitTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/StoreKitTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -114,8 +110,6 @@
 				04A4D9482923479300705EFD /* AppDelegate.swift */,
 				04A4D94A2923479300705EFD /* SceneDelegate.swift */,
 				04A4D94C2923479300705EFD /* ViewController.swift */,
-				0495B3512930993D00BFC9B5 /* ContentViewController.swift */,
-				04A4D978292544F800705EFD /* MapViewController.swift */,
 				04A4D94E2923479300705EFD /* Main.storyboard */,
 				04A4D9512923479400705EFD /* Assets.xcassets */,
 				04A4D9532923479400705EFD /* LaunchScreen.storyboard */,
@@ -293,8 +287,6 @@
 				04A4D94D2923479300705EFD /* ViewController.swift in Sources */,
 				04A4D9492923479300705EFD /* AppDelegate.swift in Sources */,
 				04A4D94B2923479300705EFD /* SceneDelegate.swift in Sources */,
-				0495B3522930993D00BFC9B5 /* ContentViewController.swift in Sources */,
-				04A4D979292544F800705EFD /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
