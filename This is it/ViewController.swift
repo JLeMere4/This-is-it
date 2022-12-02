@@ -12,6 +12,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import FloatingPanel
+import SwiftUI
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
    
@@ -36,9 +37,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
        mapView.delegate = self
        
        
-       
        var currentLoc: CLLocation!
        let manager = CLLocationManager()
+       
+       
+       
        
        locationManager.requestWhenInUseAuthorization()
        if(manager.authorizationStatus == .authorizedWhenInUse ||
@@ -46,56 +49,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
            currentLoc = locationManager.location
            print(currentLoc.coordinate.latitude)
            print(currentLoc.coordinate.longitude)
+      
        }
-       
-       
-       //messing around with camera
-       /*
-       let oahuCenter = CLLocation(latitude: 33.69, longitude: -112.3100)
-       let region = MKCoordinateRegion(
-           center: oahuCenter.coordinate,
-           latitudinalMeters: 10000000,
-           longitudinalMeters: 10000000)
-       mapView.setCameraBoundary(
-           MKMapView.CameraBoundary(coordinateRegion: region),
-           animated: true)
-       
-       let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 100000000)
-       mapView.setCameraZoomRange(zoomRange, animated: true)
-       */
-       
-       //creating the circle
-       
-       
-       
-       
-       /*class MKCircle : MKShape{
-        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        return MKOverlayRenderer
-        }
-        }*/
-       
-       /*func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, mapView: MKMapView) {
-        let circle = MKCircle(center: coordinate, radius: radius)
-        mapView.addOverlay(circle)
-        }
-        
-        showCircle(coordinate: currentLoc.coordinate, radius: 1000, mapView: mapView)
-        
-        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
-        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(currentLoc.coordinate.latitude, currentLoc.coordinate.longitude)
-        
-        mapView.setRegion(region, animated: true)
-        
-        let annotation = MKPointAnnotation()
-        
-        annotation.coordinate = location
-        annotation.title = "Random Area"
-        
-        mapView.addAnnotation(annotation)
-        */
-       
-       
+       // new shit below
+       addRadiusCircle(location: currentLoc)
+       func addRadiusCircle(location: CLLocation){
+              self.mapView.delegate = self
+           var circle = MKCircle(center: currentLoc.coordinate, radius: 10000 as CLLocationDistance)
+              self.mapView.addOverlay(circle)
+          }
+
+          func mapViews(mapViews: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+              if overlay is MKCircle {
+                  var circle = MKCircleRenderer(overlay: overlay)
+                  circle.strokeColor = UIColor.red
+                  circle.fillColor = UIColor(red: 255, green: 0, blue: 0, alpha: 0.1)
+                  circle.lineWidth = 1
+                  return circle
+              } else {
+                  return nil
+              }
+          }
+    // new shit above
    }
    
    @IBOutlet var getDirectionsButton: UIButton!
@@ -151,6 +126,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
            let route = response.routes[0]
            self.mapView.addOverlay(route.polyline)
            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+
        }
        //Looks for single or multiple taps.
          let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -163,12 +139,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         view.endEditing(true)
 
    }
-   
+    
    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
        let render = MKPolylineRenderer(overlay: overlay as! MKPolyline)
        render.strokeColor = .blue
        return render
    }
-   
+    
 }
 
